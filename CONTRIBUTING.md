@@ -74,8 +74,6 @@ pre-commit run --all-files
 ```
 
 The hooks will automatically:
-- Check for trailing whitespace
-- Ensure files end with newlines
 - Validate YAML files
 - Format Rust code
 - Run clippy checks
