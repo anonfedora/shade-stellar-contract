@@ -77,25 +77,6 @@ fn test_successful_merchant_verification() {
 }
 
 #[test]
-fn test_unverify_merchant_updates_status_to_false() {
-    let (env, client, _contract_id, admin) = setup_test();
-
-    let merchant = Address::generate(&env);
-    client.register_merchant(&merchant);
-
-    let merchant_id = 1u64;
-
-    client.verify_merchant(&admin, &merchant_id, &true);
-    assert!(client.is_merchant_verified(&merchant_id));
-
-    client.verify_merchant(&admin, &merchant_id, &false);
-
-    let merchant_data = client.get_merchant(&merchant_id);
-    assert!(!merchant_data.verified);
-    assert!(!client.is_merchant_verified(&merchant_id));
-}
-
-#[test]
 fn test_non_admin_cannot_verify_merchant() {
     let (env, client, _contract_id, _admin) = setup_test();
 

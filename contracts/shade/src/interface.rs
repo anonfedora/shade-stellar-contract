@@ -14,6 +14,8 @@ pub trait ShadeTrait {
     fn get_merchant(env: Env, merchant_id: u64) -> Merchant;
     fn get_merchants(env: Env, filter: MerchantFilter) -> Vec<Merchant>;
     fn is_merchant(env: Env, merchant: Address) -> bool;
+    fn set_merchant_status(env: Env, admin: Address, merchant_id: u64, status: bool);
+    fn is_merchant_active(env: Env, merchant_id: u64) -> bool;
     fn verify_merchant(env: Env, admin: Address, merchant_id: u64, status: bool);
     fn is_merchant_verified(env: Env, merchant_id: u64) -> bool;
     fn create_invoice(
